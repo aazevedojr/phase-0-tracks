@@ -4,7 +4,7 @@
 
 * What is version control?  Why is it useful?
 
-Through a tool like Git, you can save your work in a repository as you update it. Each save is a version of that work. Using version control, you can access different versions (saves) of that work in order to, for instance, detect when exactly a bug started occurring and what is causing it.
+Using a tool like Git, you can save your work in a repository as you update it. Each save is a version of that work. Using version control, you can access different versions (saves) of that work in order to, for instance, detect when exactly a bug started occurring and what is causing it.
 
 * What is a branch and why would you use one?
 
