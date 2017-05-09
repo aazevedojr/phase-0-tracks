@@ -1,0 +1,53 @@
+header {
+  font-family: timesnewroman;
+  border: 1px solid grey;
+  padding: 5px;
+  margin-bottom:10px;
+  width: 96%;
+}
+
+body {
+  max-width: 960px;
+}
+
+.column-1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 47%;
+  border: 1px solid grey;
+  padding:5px;
+}
+
+.column-2 {
+  display: inline-block;
+  width: 47%;
+  border:1px solid grey;
+  padding: 5px;
+}
+
+footer {
+  margin: 5px 5px 5px 0px;
+  border: 1px solid grey;
+  width: 97%;
+  text-align: center;
+}
+
+body {
+  background-color:  #ccccb3;
+}
+
+h1, h2 {
+  font-style: italic;
+}
+a: link {
+  text-decoration-line: none;
+}
+
+a: visited {
+  color: green;
+}
+
+a:hover {
+  color: purple;
+}
+
