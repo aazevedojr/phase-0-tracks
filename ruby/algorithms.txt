@@ -1,0 +1,39 @@
+**Release 0: Elevator**
+
+From just in front of the elevator door, do:
+- If desired floor number is lower than current floor number,
+    - Push the button that has an arrow pointing downwards.
+- If desired floor number is higher than current floor number,
+    - Push the button that has an arrow pointing upwards.
+- Until elevator arrives,
+    - Wait.
+- Enter the elevator.
+- Until current floor number is equal to desired floor number,
+    - Until button number is equal to desired floor number,
+        - Browse buttons.
+    - Push the button.
+- Wait.
+- Exit the elevator.
+You have arrived to the desired floor.
+
+
+**Release 1: Cup Noodles**
+
+From inside the kitchen, do:
+- Until water hits the 0.5L mark,
+    - Fill the electric kettle with tap water.
+- Turn electric kettle on.
+- Until electric kettle automatically turns off,
+    - Wait.
+- Until the cup's lid is halfway open,
+    - Gently pull the lid by the indicated part.
+- Until water hits the mark in the cup,
+    - Fill the cup.
+- Close the lid of the cup.
+- Turn the 5 min hourglass upside down.
+- Until sand has stopped falling in the hourglass,
+    - Wait.
+- Open the cup lid completely.
+- Get some chopsticks.
+Itadakimasu!
+
