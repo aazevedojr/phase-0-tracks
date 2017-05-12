@@ -56,14 +56,14 @@ end
 
 # Data Analysis
 
-if age && (garlic_bread || health_insurance)
-  puts "Probably not a vampire."
-elsif !age && (!garlic_bread || !health_insurance)
-  puts "Probably a vampire."
+if (name == "Drake Cula") || (name == "Tu Fang")
+  puts "Definitely a vampire."
 elsif !age && !garlic_bread && !health_insurance
   puts "Almost certainly a vampire."
-elsif (name == "Drake Cula") || (name == "Tu Fang")
-  puts "Definitely a vampire."
+elsif !age && (!garlic_bread || !health_insurance)
+  puts "Probably a vampire."
+elsif age && (garlic_bread || health_insurance)
+  puts "Probably not a vampire."
 else
   puts "Results inconclusive."
 end
