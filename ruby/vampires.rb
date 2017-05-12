@@ -35,40 +35,21 @@ until i == employees
   
     # Data Processing
   
-    # birthday to boolean:
+    # calculating actual age:
     if (birthday == "Y") || (birthday == "TODAY")
-      birthday = TRUE
-    else
-      birthday = FALSE
-    end
-    
-    # calculating the employee's actual age:
-    if birthday
       actual_age = year - birth
     else
       actual_age = year - birth - 1
     end
     
     # age to boolean:
-    if actual_age == age
-      age = TRUE
-    else
-      age = FALSE
-    end
+    age = (actual_age == age)
     
     # garlic_bread to boolean:
-    if garlic_bread == "Y"
-      garlic_bread = TRUE
-    else
-      garlic_bread = FALSE
-    end
+    garlic_bread = (garlic_bread == "Y")
     
     # health_insurance to boolean:
-    if health_insurance == "Y"
-      health_insurance = TRUE
-    else
-      health_insurance = FALSE
-    end
+    health_insurance = (health_insurance == "Y")
     
     
     # Data Analysis
@@ -96,6 +77,13 @@ until i == employees
 
   if i < employees
     puts "Initiating survey for employee number #{ i + 1 }..."
+  else
+    puts "Surveying process complete!"
   end
 
 end
+
+
+# Plot Twist
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
