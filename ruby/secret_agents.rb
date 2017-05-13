@@ -7,24 +7,30 @@
 # while i < password.length
 #iterate make each one into the previous letter
 
+test = "magicword"
+
+puts "The password is: #{test}"
+
 def encrypt(password)
-index = 0
-  while index < password.length
-    puts password[index].next
-    index += 1
+i = 0
+  while i < password.length
+    puts password[i].next
+    i += 1
   end
 end
 
-#encrypt("magicword")
+puts "The encrypted password is:"
+encrypt(test)
 
 def decrypt(password)
   alphabet = "abcdefghijklmnopqrstuvwxyz" 
-  index = 0
-  while index < password.length
-      puts alphabet[index]
-      index += 1
+  i = 0
+  while i < password.length
+      puts alphabet[alphabet.index(password[i]) - 1]
+      i += 1
   end
 end
 
-decrypt("magicword")
+puts "The decrypted password is:"
+decrypt(test)
 
