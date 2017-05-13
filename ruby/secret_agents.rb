@@ -9,7 +9,7 @@
 
 password = "magicword"
 
-puts "The original  password is: #{password}"
+# puts "The original  password is: #{password}"
 
 def encrypt(string)
   i = 0
@@ -25,7 +25,7 @@ def encrypt(string)
   encrypted_string
 end
 
-puts "The encrypted password is: #{encrypt(password)}"
+# puts "The encrypted password is: #{encrypt(password)}"
 
 def decrypt(string)
   alphabet = "abcdefghijklmnopqrstuvwxyz" 
@@ -38,11 +38,15 @@ def decrypt(string)
   decrypted_string
 end
 
-puts "The decrypted password is: #{decrypt(encrypt(password))}"
+# puts "The decrypted password is: #{decrypt(encrypt(password))}"
 
-puts encrypt("abc")
-puts encrypt("zed")
-puts decrypt("bcd")
-puts decrypt("afe")
+# puts encrypt("abc")
+# puts encrypt("zed")
+# puts decrypt("bcd")
+# puts decrypt("afe")
 
-puts decrypt(encrypt("swordfish"))
+# puts decrypt(encrypt("swordfish"))
+
+# In ruby, it's possible to have nested method calls.
+# It runs the inner most method which will be used as the argument for the outer method.
+
