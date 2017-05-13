@@ -44,3 +44,5 @@ puts encrypt("abc")
 puts encrypt("zed")
 puts decrypt("bcd")
 puts decrypt("afe")
+
+puts decrypt(encrypt("swordfish"))
