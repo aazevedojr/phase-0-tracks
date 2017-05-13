@@ -15,7 +15,11 @@ def encrypt(string)
   i = 0
   encrypted_string = ""
   while i < string.length
-    encrypted_string += string[i].next
+    if string[i] != "z"
+      encrypted_string += string[i].next
+    else
+      encrypted_string += "a"
+    end
     i += 1
   end
   encrypted_string
@@ -35,3 +39,8 @@ def decrypt(string)
 end
 
 puts "The decrypted password is: #{decrypt(encrypt(password))}"
+
+puts encrypt("abc")
+puts encrypt("zed")
+puts decrypt("bcd")
+puts decrypt("afe")
