@@ -33,4 +33,3 @@ end
 
 puts "The decrypted password is:"
 decrypt(test)
-
