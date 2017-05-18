@@ -25,3 +25,13 @@ application[:hiered] = true
 
 p application
 
+# What happens if you store a key in a variable,
+# then access the hash using the variable?
+
+variable = :title
+
+p application[variable]
+
+# What happens when you try the expression below?
+
+p application[:name] + application [:address]
