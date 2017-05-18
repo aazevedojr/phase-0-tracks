@@ -1,4 +1,5 @@
 application = {
+  title: "INTERIOR DESIGNER JOB APPLICATION - draft",
   name: "Augusto",
   address: "Neverland",
   email: "augusto.azevedo.jr@gmail.com",
@@ -13,13 +14,14 @@ application = {
   ombre_is_medieval: false
 }
 
-puts "INTERIOR DESIGNER JOB APPLICATION -- draft"
 p application
 
+application[:title] = "INTERIOR DESIGNER JOB APPLICATION - final"
 application[:name] << " Azevedo"
 application[:address] << ", Narnia"
 application[:ombre_is_old] = !application[:ombre_is_old]
 application[:ombre_is_medieval] = !application[:ombre_is_medieval]
+application[:hiered] = true
 
-puts "INTERIOR DESIGNER JOB APPLICATION -- final"
 p application
+
