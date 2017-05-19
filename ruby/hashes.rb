@@ -52,10 +52,17 @@ end
 
 puts "Interior Designer Helper [alpha]"
 
+
+# Doesn't work! What doesn't it work? D:
+
+# for i in 0...file.length
+#   puts file.keys[i]
+#   file.values[i] = string_converter(gets.chomp)
+# end
+
 for i in 0...file.length
   puts file.keys[i]
-  file.values[i] << gets.chomp
-  file.values[i] = string_converter(file.values[i])
+  file[file.keys[i]] = string_converter(gets.chomp)
 end
 
 p file
