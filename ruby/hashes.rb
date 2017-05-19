@@ -67,9 +67,12 @@ for i in 0...file.length
 end
 
 puts "Enter the name of a field that you'd like to update (or 'none'):"
-update = gets.chomp.to_sym
-puts "Update your answer."
-file[update] = string_converter(gets.chomp)
+input = gets.chomp
+if input != "none"
+  update = input.to_sym
+  puts "Update your answer."
+  file[update] = string_converter(gets.chomp)
+end
 
 puts "Client's file:"
 p file
