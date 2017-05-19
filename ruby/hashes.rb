@@ -20,14 +20,14 @@
 # BUSINESS LOGIC
 
 file = {
-  name: nil,
-  age: nil,
-  number_of_children: nil,
-  forbidden_colors: nil,
-  psychedelic: nil,
-  minimalist: nil,
-  vitorian: nil,
-  japanese_medieval: nil
+  name: "",
+  age: "",
+  number_of_children: "",
+  forbidden_color: "",
+  psychedelic: "",
+  minimalist: "",
+  vitorian: "",
+  japanese_medieval: ""
 }
 
 
@@ -35,6 +35,9 @@ file = {
 
 puts "Interior Designer Helper [alpha]"
 
-for i in 0..file.length
-  p file.key(i)
+for i in 0...file.length
+  puts file.keys[i]
+  file.values[i] << gets.chomp
 end
+
+puts file
