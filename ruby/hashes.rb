@@ -24,10 +24,10 @@ file = {
   age: "",
   number_of_children: "",
   forbidden_color: "",
-  psychedelic: "",
-  minimalist: "",
-  vitorian: "",
-  japanese_medieval: ""
+  likes_psychedelic: "",
+  likes_minimalist: "",
+  likes_vitorian: "",
+  likes_japanese_medieval: ""
 }
 
 def string_converter(string)
@@ -47,13 +47,14 @@ end
 #p string_converter("0")
 #p string_converter("1")
 #p string_converter("yellow")
+# The method works!
 
 # USER INTERFACE
 
 puts "Interior Designer Helper [alpha]"
 
 
-# Doesn't work! What doesn't it work? D:
+# Doesn't work! Why doesn't it work? D:
 
 # for i in 0...file.length
 #   puts file.keys[i]
@@ -65,4 +66,10 @@ for i in 0...file.length
   file[file.keys[i]] = string_converter(gets.chomp)
 end
 
+puts "Enter the name of a field that you'd like to update (or 'none'):"
+update = gets.to_sym
+puts "Update your answer."
+file[update] = string_converter(gets.chomp)
+
+puts "Client's file:"
 p file
