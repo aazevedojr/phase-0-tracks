@@ -30,6 +30,23 @@ file = {
   japanese_medieval: ""
 }
 
+def string_converter(string)
+  if string == "y" || string == "n"
+    boolean = (string == "y")
+  elsif string == "0"
+    string = 0
+  elsif string.to_i != 0
+    string = string.to_i
+  else
+    string
+  end
+end
+
+#puts string_converter("y")
+#puts string_converter("n")
+#puts string_converter("0")
+#puts string_converter("1")
+#puts string_converter("yellow")
 
 # USER INTERFACE
 
@@ -38,6 +55,7 @@ puts "Interior Designer Helper [alpha]"
 for i in 0...file.length
   puts file.keys[i]
   file.values[i] << gets.chomp
+  string_converter(file.values[i])
 end
 
 puts file
