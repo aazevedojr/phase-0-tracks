@@ -9,7 +9,7 @@ def pick_your_starter
   pokemon2 = "Charmander"
   pokemon3 = "Squirtle"
   puts "It's dangerous out there!"
-  puts "Take one:"
+  puts "Pick one:"
   yield(pokemon1)
   yield(pokemon2)
   yield(pokemon3)
@@ -52,14 +52,14 @@ puts "There's no need to choose wisely this time, really..."
 
 puts "-- Green Version --"
 
-glitchy_hash = []
+glitchy_array = []
 
 starters_hash.map do |element, pokemon|
-  glitchy_hash << pokemon.next.swapcase.delete("A")
+  glitchy_array << pokemon.next.swapcase.delete("A")
 end
 
 puts "Pick one:"
-p glitchy_hash
+p glitchy_array
 puts "Pokemon Green has only ever been released in Japan,
 so it's only natural that the starter's names are rendered incorrectly.
 Sorry!"
