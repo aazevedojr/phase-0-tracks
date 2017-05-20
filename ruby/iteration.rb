@@ -1,6 +1,8 @@
-# Version 1
+puts "Welcome to the Pokemon World!"
 
-puts "-- Vesion 1: --"
+# Method-Block Version:
+
+puts "-- Red Version --"
 
 def pick_your_starter
   pokemon1 = "Bulbasaur"
@@ -17,9 +19,9 @@ end
 pick_your_starter { |pokemon| puts pokemon }
 
 
-# Version 2
+# hash.each Version:
 
-puts "-- Version 2 --"
+puts "-- Blue Version --"
 
 puts "Pick one:"
 
@@ -30,3 +32,18 @@ starters_hash.each do |element, pokemon|
 end
 
 puts "Choose wisely!"
+
+
+# array.map! Version:
+
+puts "-- Yellow Version --"
+
+starters_array = ["Bulbasaur", "Charmander", "Squirtle"]
+
+starters_array.map! do |pokemon|
+  "Pikachu"
+end
+
+puts "Pick one:"
+p starters_array
+puts "There's no need to choose wisely this time, really..."
