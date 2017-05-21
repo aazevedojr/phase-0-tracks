@@ -12,7 +12,22 @@
 real_name = "Felicia Torres"
 
 def swap_name(name)
-  name.split(' ').reverse!.join(' ')
+  name.split(' ').reverse.join(' ')
 end
 
-p swap_name(real_name)
+swapped_name = swap_name(real_name)
+
+#p swapped_name
+
+def advance_vowel(name)
+  vowels = ['a','e','i','o','u']
+  name_letters = name.downcase.chars
+  name_vowels = name_letters & vowels
+  advanced_vowels = name_vowels.map {|vowel| vowel = vowels[vowels.index(vowel) + 1]}
+  name_letters.map! do |letter|
+    #Stopped here.
+  end
+  name_letters.join(' ')
+end
+
+vowel_advanced_name = advance_vowel(real_name)
