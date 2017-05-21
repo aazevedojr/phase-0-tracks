@@ -26,11 +26,10 @@ consonants = alphabet - vowels
 # This method takes an array as arguments and returns an array:
 
 def advance_letters(letters)
-  advanced_letters = letters.map do |letter|
+  letters.map do |letter|
     advanced_index = (letters.index(letter) + 1) % letters.length
     letter = letters[advanced_index]
   end
-  advanced_letters
 end
 
 replacement_vowels = advance_letters(vowels)
@@ -41,7 +40,7 @@ replacement_consonants = advance_letters(consonants)
 def substitute_letters(word, letters_to_replace, replacement_letters)
   replaced_letters = word.downcase.chars.map do |letter|
     if letters_to_replace.include? letter
-      letter = replacement_letters[letters_to_replace.index(letter)]
+      replacement_letters[letters_to_replace.index(letter)]
     else
       letter
     end
@@ -58,7 +57,7 @@ name_substituted_consonants = substitute_letters(name_substituted_vowels, conson
 def name_case(full_name)
   names = full_name.split(' ')
   names.map! {|name| name.capitalize}
-  capitalized_name = names.join(' ')
+  names.join(' ')
 end
 
 codename = name_case(name_substituted_consonants)
