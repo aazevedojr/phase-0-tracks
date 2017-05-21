@@ -35,7 +35,6 @@ end
 
 replacement_vowels = advance_letters(vowels)
 replacement_consonants = advance_letters(consonants)
-p replacement_consonants
 
 # This method takes a string and two arrays of same length as arguments and returns a string:
 
@@ -52,4 +51,16 @@ end
 
 p real_name
 name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
-p substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
+name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
+
+# This method takes a string and returns a string:
+
+def name_case(full_name)
+  names = full_name.split(' ')
+  names.map! {|name| name.capitalize}
+  capitalized_name = names.join(' ')
+end
+
+codename = name_case(name_substituted_consonants)
+
+p codename
