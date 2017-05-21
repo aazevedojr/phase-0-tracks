@@ -9,22 +9,12 @@
 
 # BUSINESS LOGIC:
 
-real_name = "Felicia Torres"
-
-def swap_name(name)
-  name.split(' ').reverse.join(' ')
+# Takes a string; returns a string:
+def swap_names(full_name)
+  full_name.split(' ').reverse.join(' ')
 end
 
-swapped_name = swap_name(real_name)
-
-#p swapped_name
-
-alphabet = 'abcdefghijklmnopqrstuvwxyz'.chars
-vowels = ['a','e','i','o','u']
-consonants = alphabet - vowels
-
-# This method takes an array as arguments and returns an array:
-
+# Takes an array; returns an array:
 def advance_letters(letters)
   letters.map do |letter|
     advanced_index = (letters.index(letter) + 1) % letters.length
@@ -32,11 +22,7 @@ def advance_letters(letters)
   end
 end
 
-replacement_vowels = advance_letters(vowels)
-replacement_consonants = advance_letters(consonants)
-
-# This method takes a string and two arrays of same length as arguments and returns a string:
-
+# Takes a string and two arrays; returns a string:
 def substitute_letters(word, letters_to_replace, replacement_letters)
   replaced_letters = word.downcase.chars.map do |letter|
     if letters_to_replace.include? letter
@@ -48,18 +34,23 @@ def substitute_letters(word, letters_to_replace, replacement_letters)
   replaced_letters.join('')
 end
 
-p real_name
-name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
-name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
-
-# This method takes a string and returns a string:
-
+# Takes a string; returns a string:
 def name_case(full_name)
   names = full_name.split(' ')
   names.map! {|name| name.capitalize}
   names.join(' ')
 end
 
+real_name = "Felicia Torres"
+alphabet = 'abcdefghijklmnopqrstuvwxyz'.chars
+vowels = ['a','e','i','o','u']
+consonants = alphabet - vowels
+swapped_name = swap_names(real_name)
+replacement_vowels = advance_letters(vowels)
+replacement_consonants = advance_letters(consonants)
+name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
+name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
 codename = name_case(name_substituted_consonants)
 
+p real_name
 p codename
