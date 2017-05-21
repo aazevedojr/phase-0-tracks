@@ -37,11 +37,43 @@ swapped_name = swap_name(real_name)
 
 # "Dictionary" Approach:
 
+# alphabet = 'abcdefghijklmnopqrstuvwxyz'.chars
+# vowels = ['a','e','i','o','u']
+# consonants = alphabet - vowels
+# advanced_vowels = vowels.map do |vowel|
+#   advanced_index = (vowels.index(vowel) + 1) % vowels.length
+#   vowel = vowels[advanced_index]
+# end
+# p advanced_vowels
+
 alphabet = 'abcdefghijklmnopqrstuvwxyz'.chars
 vowels = ['a','e','i','o','u']
 consonants = alphabet - vowels
-advanced_vowels = vowels.map do |vowel|
-  advanced_index = (vowels.index(vowel) + 1) % vowels.length
-  vowel = vowels[advanced_index]
+
+# This method takes a string and an array as arguments and returns an array:
+
+def advance_letters(word, letters)
+  advanced_letters = letters.map do |letter|
+    advanced_index = (letters.index(letter) + 1) % letters.length
+    letter = letters[advanced_index]
+  end
+  advanced_letters
 end
-p advanced_vowels
+
+replacement_vowels = advance_letters(real_name, vowels)
+
+# This method takes a string and two arrays of same length as arguments and returns a string:
+
+def substitute_letters(word, letters_to_replace, replacement_letters)
+  replaced_letters = word.chars.map do |letter|
+    if letters_to_replace.include? letter
+      letter = replacement_letters[letters_to_replace.index(letter)]
+    else
+      letter
+    end
+  end
+  replaced_letters.join('')
+end
+
+p real_name
+p substitute_letters(real_name, vowels, replacement_vowels)
