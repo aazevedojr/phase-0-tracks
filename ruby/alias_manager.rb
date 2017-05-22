@@ -57,16 +57,14 @@ replacement_consonants = advance_letters(consonants)
 
 # -- USER INTERFACE --
 
-# Input:
-puts "Enter your full name."
-real_name = gets.chomp
-
-# Calling the methods:
-swapped_name = swap_names(real_name)
-name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
-name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
-codename = name_case(name_substituted_consonants)
-
-# Output:
-puts "Your codename is:"
-puts codename
+loop do
+  puts "Enter a name to convert or 'quit' to finish."
+  input = gets.chomp
+  break if input == 'quit'
+  swapped_name = swap_names(input)
+  name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
+  name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
+  codename = name_case(name_substituted_consonants)
+  puts "Your codename is:"
+  puts codename
+end
