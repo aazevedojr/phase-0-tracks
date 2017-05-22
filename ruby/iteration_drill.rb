@@ -50,6 +50,22 @@ sorted = sort(indices)
 # For instance: are boots in your list of supplies?
 
 
+def check(item_to_be_checked, list_of_items)
+  checklist = 1
+  list_of_items.each do |item|
+    if item == item_to_be_checked
+      puts "Yes!"
+      checklist -= 1
+    end
+  end
+  if checklist == 1
+    puts "No..."
+  end
+end
+
+puts "Enter an item to check rather you have it or not."
+input = gets.chomp
+check(input, zombie_apocalypse_supplies)
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
