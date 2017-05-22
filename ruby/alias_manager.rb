@@ -54,6 +54,9 @@ consonants = alphabet - vowels
 replacement_vowels = advance_letters(vowels)
 replacement_consonants = advance_letters(consonants)
 
+# Data-storing hash:
+codename = {}
+
 
 # -- USER INTERFACE --
 
@@ -64,7 +67,9 @@ loop do
   swapped_name = swap_names(input)
   name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
   name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
-  codename = name_case(name_substituted_consonants)
-  puts "Your codename is:"
-  puts codename
+  codename[input] = name_case(name_substituted_consonants)
+end
+
+codename.each do |name, codename|
+  puts "#{codename} is actually #{name}."
 end
