@@ -5,11 +5,15 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 
 # 1. Iterate through the zombie_apocalypse_supplies array,
 # printing each item in the array separated by an asterisk
-# ----
+p zombie_apocalypse_supplies.join('*')
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
-# ----
+
+zombie_apocalypse_supplies.each do |supply|
+  p supply[0]
+end
+
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
