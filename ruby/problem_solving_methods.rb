@@ -15,11 +15,11 @@ def search_array(array, integer)
   end
 end
 
-#arr = [42, 89, 23, 1]
+arr = [42, 89, 23, 1]
 
-#p search_array(arr, 1)
-#p search_array(arr, 23)
-#p search_array(arr, 24)
+p search_array(arr, 1)
+p search_array(arr, 23)
+p search_array(arr, 24)
 
 
 # Fibonacci Numbers:
@@ -38,3 +38,27 @@ p fib(0)
 p fib(1)
 p fib(6)
 p fib(100).last
+
+
+# Sorting an Array:
+
+#for i = 1 to (array's length - 1)
+#    j = i
+#    while j > 0 and array[j-1] > array[j]
+#        swap array[j] and array[j-1]
+#        j = j - 1
+#    end while
+#end for
+
+def sort(array)
+  for i in 1..(array.length - 1)
+    j = i
+    while j > 0 && array[j-1] > array[j]
+      array[j], array[j-1] = array[j-1], array[j]
+      j -= 1
+    end
+  end
+  array
+end
+
+p sort(arr)
