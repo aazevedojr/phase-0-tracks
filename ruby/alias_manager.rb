@@ -1,4 +1,4 @@
-# PSEUDOCODE:
+# -- PSEUDOCODE --
 
 # Asks for real name,
 # Separates first from last name,
@@ -7,7 +7,8 @@
 # Changes vowels to the next vowel from "aeiou",
 # Changes consonants to the next consonant from ("abcdefghijklmnopqrstuvwxyz" - "aeiou").
 
-# BUSINESS LOGIC:
+
+# -- BUSINESS LOGIC --
 
 # Takes a string; returns a string:
 def swap_names(full_name)
@@ -41,16 +42,31 @@ def name_case(full_name)
   names.join(' ')
 end
 
-real_name = "Felicia Torres"
+
+# -- LIBRARY --
+
+# Basic arrays:
 alphabet = 'abcdefghijklmnopqrstuvwxyz'.chars
-vowels = ['a','e','i','o','u']
+vowels = 'aeiou'.chars
 consonants = alphabet - vowels
-swapped_name = swap_names(real_name)
+
+# New arrays:
 replacement_vowels = advance_letters(vowels)
 replacement_consonants = advance_letters(consonants)
+
+
+# -- USER INTERFACE --
+
+# Input:
+puts "Enter your full name."
+real_name = gets.chomp
+
+# Calling the methods:
+swapped_name = swap_names(real_name)
 name_substituted_vowels = substitute_letters(swapped_name, vowels, replacement_vowels)
 name_substituted_consonants = substitute_letters(name_substituted_vowels, consonants, replacement_consonants)
 codename = name_case(name_substituted_consonants)
 
-p real_name
-p codename
+# Output:
+puts "Your codename is:"
+puts codename
