@@ -45,10 +45,10 @@ def list_maker(items, *quantities)
 end
 
 
-def add_to_list(item)
-  list_maker("carrots apples cereal pizza")
-  list_hash = []
-  list_hash[item] = 1
+def add_to_list(list, item, quantity = 1)
+  list[item] = quantity
+  list
 end
 
-p list_maker("carrots apples cereal pizza")
+created_list = list_maker("carrots apples cereal pizza")
+ p add_to_list(created_list, "cheese", 2)
