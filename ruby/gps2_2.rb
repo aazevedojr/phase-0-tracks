@@ -45,10 +45,17 @@ def list_maker(items, *quantities)
 end
 
 
-def add_to_list(list, item, quantity = 1)
-  list[item] = quantity
+def add_to_list(list, item_to_add, quantity = 1)
+  list[item_to_add] = quantity
   list
 end
 
+def remove_from_list(list, item_to_remove)
+  list.delete_if {|item, quantity| item == item_to_remove}
+end
+
 created_list = list_maker("carrots apples cereal pizza")
- p add_to_list(created_list, "cheese", 2)
+list_with_added_item = add_to_list(created_list, "cheese")
+list_with_removed_item = remove_from_list(list_with_added_item, "carrots")
+
+p list_with_removed_item
