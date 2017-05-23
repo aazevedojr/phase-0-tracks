@@ -1,4 +1,4 @@
-# Array Drills
+puts "--- Array Drills ---"
 
 zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
                               "shotgun", "compass", "CB radio", "batteries"]
@@ -6,32 +6,13 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # 1. Iterate through the zombie_apocalypse_supplies array,
 # printing each item in the array separated by an asterisk
 
-#puts zombie_apocalypse_supplies.join(' * ')
-
-# or
-
-#zombie_apocalypse_supplies.each do |supply|
-#  puts supply
-#  if supply != zombie_apocalypse_supplies[-1]
-#    puts "*"
-#  end
-#end
+puts "Zombie Apocalypse Suplies:"
+puts zombie_apocalypse_supplies.join(' * ')
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-
-indexed_first_letters = {}
-
-zombie_apocalypse_supplies.each do |supply|
-  indexed_first_letters[supply[0].downcase] = alphabet.index(supply[0].downcase)
-end
-
-indexed_first_letters
-
-first_letters = indexed_first_letters.keys
-indices = indexed_first_letters.values
+zombie_apocalypse_supplies.map! { |item| item.downcase }
 
 def sort(array)
   for i in 1..(array.length - 1)
@@ -44,7 +25,9 @@ def sort(array)
   array
 end
 
-sorted = sort(indices)
+puts "Ordered Zombie Apocalypse Suplies:"
+zombie_apocalypse_supplies = sort(zombie_apocalypse_supplies)
+puts zombie_apocalypse_supplies.join(' * ')
 
 
 # 3. Create a method to see if a particular item (string) is in the
@@ -65,18 +48,22 @@ def check(item_to_be_checked, list_of_items)
   end
 end
 
-#puts "Enter an item to check rather you have it or not."
-#input = gets.chomp
-#check(input, zombie_apocalypse_supplies)
+puts "Enter an item to check rather you have it or not."
+input = gets.chomp
+check(input, zombie_apocalypse_supplies)
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
 
 until zombie_apocalypse_supplies.length == 5
-zombie_apocalypse_supplies = zombie_apocalypse_supplies - [zombie_apocalypse_supplies[rand(0..zombie_apocalypse_supplies.length)]]
+  random_item = zombie_apocalypse_supplies[rand(1..zombie_apocalypse_supplies.length) - 1]
+  puts "*Tosses #{random_item}*"
+  zombie_apocalypse_supplies = zombie_apocalypse_supplies - [random_item]
 end
 
+puts "Remaining supplies:"
+puts zombie_apocalypse_supplies.join(' * ')
 
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
@@ -88,11 +75,13 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
 
 zombie_apocalypse_supplies = zombie_apocalypse_supplies + other_survivor_supplies
 
-#p zombie_apocalypse_supplies.uniq!
+puts "Combined supplies:"
+zombie_apocalypse_supplie = sort(zombie_apocalypse_supplies.uniq!)
+puts zombie_apocalypse_supplie.join(' * ')
 
 
 
-# Hash Drills
+puts "--- Hash Drills ---"
 
 extinct_animals = {
   "Tasmanian Tiger" => 1936,
@@ -109,7 +98,8 @@ extinct_animals = {
 
 output = extinct_animals.map { |animal, year| "#{animal} - #{year}" }.join(' * ')
 
-p output
+puts "List of extinct animals:"
+puts output
 
 
 # 2. Keep only animals in extinct_animals if they were extinct before
