@@ -54,8 +54,24 @@ def remove_from_list(list, item_to_remove)
   list.delete_if {|item, quantity| item == item_to_remove}
 end
 
-created_list = list_maker("carrots apples cereal pizza")
-list_with_added_item = add_to_list(created_list, "cheese")
-list_with_removed_item = remove_from_list(list_with_added_item, "carrots")
+def update_list(list, item_to_update, quantity)
+  list[item_to_update] = quantity
+  list
+end
 
+def print_list(list)
+  puts "To buy:"
+  list.each do |item, quantity|
+    puts quantity.to_s + ' ' + item.capitalize
+  end
+end
+
+created_list = list_maker("carrots apples cereal pizza")
+p created_list
+list_with_added_item = add_to_list(created_list, "cheese")
+p list_with_added_item
+list_with_removed_item = remove_from_list(list_with_added_item, "carrots")
 p list_with_removed_item
+updated_list = update_list(list_with_removed_item, "apples", 3)
+p updated_list
+print_list(updated_list)
