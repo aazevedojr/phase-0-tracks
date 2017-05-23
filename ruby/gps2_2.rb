@@ -66,12 +66,22 @@ def print_list(list)
   end
 end
 
-created_list = list_maker("carrots apples cereal pizza")
+# created_list = list_maker("carrots apples cereal pizza")
+# p created_list
+# list_with_added_item = add_to_list(created_list, "cheese")
+# p list_with_added_item
+# list_with_removed_item = remove_from_list(list_with_added_item, "carrots")
+# p list_with_removed_item
+# updated_list = update_list(list_with_removed_item, "apples", 3)
+# p updated_list
+# print_list(updated_list)
+
+created_list = list_maker("Lemonade Tomatoes Onions", 2, 3, 1)
 p created_list
-list_with_added_item = add_to_list(created_list, "cheese")
+list_with_added_item = add_to_list(created_list, "Ice Cream", 4)
 p list_with_added_item
-list_with_removed_item = remove_from_list(list_with_added_item, "carrots")
+list_with_removed_item = remove_from_list(list_with_added_item, "Lemonade")
 p list_with_removed_item
-updated_list = update_list(list_with_removed_item, "apples", 3)
+updated_list = update_list(list_with_removed_item, "Ice Cream", 1)
 p updated_list
 print_list(updated_list)
