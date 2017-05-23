@@ -6,7 +6,9 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # 1. Iterate through the zombie_apocalypse_supplies array,
 # printing each item in the array separated by an asterisk
 
-#p zombie_apocalypse_supplies.join('*')
+#puts zombie_apocalypse_supplies.join(' * ')
+
+# or
 
 #zombie_apocalypse_supplies.each do |supply|
 #  puts supply
@@ -86,7 +88,7 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
 
 zombie_apocalypse_supplies = zombie_apocalypse_supplies + other_survivor_supplies
 
-p zombie_apocalypse_supplies.uniq!
+#p zombie_apocalypse_supplies.uniq!
 
 
 
@@ -104,11 +106,17 @@ extinct_animals = {
 
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
-# ----
+
+output = extinct_animals.map { |animal, year| "#{animal} - #{year}" }.join(' * ')
+
+p output
+
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
-# ----
+
+extinct_animals.keep_if {|animal, year| year < 2000}
+
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
