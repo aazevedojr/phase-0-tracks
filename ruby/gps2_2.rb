@@ -1,7 +1,6 @@
 # Method to create a list
 
-# Method that creates a hash;
-
+# Method that creates a hash:
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps: 
   # Splits items into an array
@@ -9,35 +8,47 @@
   # print the list to the console
 # output: hash
 
-# Method to add an item to a list
+# Method to add an item to a list:
 # input: list, item name will be a key, and optional quantity will be the value (defaults to 1)
 # steps: Takes an item to be added to the list and an optional quantity for that item
 # inserts item into a key and quantity into value (1 if not entered)
 # output: updated list
 
-# Method to remove an item from the list
+# Method to remove an item from the list:
 # input: Takes an item to be removed 
 # steps: Sets condition that removes item from the list IF it equals the item to be removed
 # output: Updated list
 
-# Method to update the quantity of an item
+# Method to update the quantity of an item:
 # input: Takes a string and an integer
 # steps: Find value by key and update value to inputted value
 # output: Updated list
 
-# Method to print a list and make it look pretty
+# Method to print a list and make it look pretty:
 # input: The list (hash)
 # steps: Insert human readable text
 # output: Updated list
 
 
-def list_maker(items)
+def list_maker(items, *quantities)
   list_hash = {}
   list_array = items.split(' ')
-  list_array.each do |item|
-    list_hash[item] = 1
+  for i in 0..(list_array.length - 1)
+    list_hash[list_array[i]] = quantities[i]
+  end
+  list_hash.map do |item, quantity|
+    if quantity == nil 
+      list_hash[item] = 1 
+    end
   end
   list_hash
+end
+
+
+def add_to_list(item)
+  list_maker("carrots apples cereal pizza")
+  list_hash = []
+  list_hash[item] = 1
 end
 
 p list_maker("carrots apples cereal pizza")
