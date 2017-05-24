@@ -7,7 +7,14 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 
 puts "Zombie Apocalypse Suplies:"
-puts zombie_apocalypse_supplies.join(' * ')
+
+zombie_apocalypse_supplies.each do |item|
+  if item != zombie_apocalypse_supplies[-1]
+    print item + ' * '
+  else
+    puts zombie_apocalypse_supplies[-1]
+  end
+end
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
@@ -56,6 +63,7 @@ check(input, zombie_apocalypse_supplies)
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
 
+puts "Your bag is too full!"
 until zombie_apocalypse_supplies.length == 5
   random_item = zombie_apocalypse_supplies[rand(1..zombie_apocalypse_supplies.length) - 1]
   puts "*Tosses #{random_item}*"
