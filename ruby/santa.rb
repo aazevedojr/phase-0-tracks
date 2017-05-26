@@ -8,6 +8,7 @@ class Santa
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
     @age = 0
+    @belly_size = 1
   end
 
   # Instance Methods:
@@ -22,8 +23,8 @@ class Santa
      puts "Happy birthday, #{@name}!"
   end 
   def get_mad_at(reindeer)
-    move_to_last = @reindeer_ranking.delete(reindeer)
-    @reindeer_ranking << move_to_last
+    puts "Oh-oh! #{@name} got mad at #{reindeer}..."
+    @reindeer_ranking << @reindeer_ranking.delete(reindeer)
   end
   #def get_mad_at(reindeer)
   #  @reindeer_ranking << @reindeer_ranking(reindeer)
@@ -69,6 +70,8 @@ end
 santas[0].speak
 santas[1].eat_milk_and_cookies("Choc Chips", "Hazelnut")
 santas[2].celebrate_birthday
+p santas[2]
 santas[3].get_mad_at("Dasher")
+p santas[3]
 santas[4].gender = "poligender"
 p santas[4]
