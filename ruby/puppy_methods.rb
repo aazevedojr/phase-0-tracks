@@ -57,7 +57,22 @@ fido.roll_over
 fido.dog_years(3)
 fido.stay(5)
 
+p fido
+
 fluffy = Cat.new
 
 fluffy.call
 fluffy.scratch("I love you, Fluffy!")
+
+cats = []
+
+for i in 1..50
+  cats << Cat.new
+end
+
+cats.each do |cat|
+  cat.call
+  cat.scratch('Hi cat!')
+end
+
+
