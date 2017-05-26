@@ -1,4 +1,6 @@
 class Santa
+  attr_reader :name, :ethnicity, :reindeer_ranking, :age, :belly_size
+  attr_accessor :gender
 
   # Attributes:
   def initialize(name, gender, ethnicity)
@@ -14,34 +16,24 @@ class Santa
   # Instance Methods:
   def speak
     puts "#{@name} says: Ho, ho, ho! Haaaappy holidays!"
+    "Happy holidays!"
   end
   def eat_milk_and_cookies(*cookie_flavors)
-    cookie_flavors.each {|flavor| puts "#{@name} ate a #{flavor} cookie with milk!"}
+    cookie_flavors.each do |flavor|
+      puts "#{@name} ate a #{flavor} cookie with milk!"
+      @belly_size += 1
+    end
+    @belly_size
   end
   def celebrate_birthday
      @age += 1
      puts "Happy birthday, #{@name}!"
+     @age
   end 
   def get_mad_at(reindeer)
     puts "Oh-oh! #{@name} got mad at #{reindeer}..."
     @reindeer_ranking << @reindeer_ranking.delete(reindeer)
-  end
-  #def get_mad_at(reindeer)
-  #  @reindeer_ranking << @reindeer_ranking(reindeer)
-  #end
-
-  # Getter Methods:
-  def name
-    @name
-  end
-  def gender
-    @gender
-  end
-  def ethnicity
-    @ethnicity
-  end
-  def age
-    @age
+    @reindeer_ranking
   end
 
   #Setter Methods:
@@ -49,7 +41,6 @@ class Santa
     @gender = new_gender
     puts "#{@name} came out as #{@gender}!"
   end
-
 
 end
 
@@ -70,8 +61,8 @@ end
 santas[0].speak
 santas[1].eat_milk_and_cookies("Choc Chips", "Hazelnut")
 santas[2].celebrate_birthday
-p santas[2]
+p santas[2].age
 santas[3].get_mad_at("Dasher")
-p santas[3]
+p santas[3].reindeer_ranking
 santas[4].gender = "poligender"
-p santas[4]
+p santas[4].gender
