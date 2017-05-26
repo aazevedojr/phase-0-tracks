@@ -4,7 +4,7 @@ class Santa
 
   # Attributes:
   def initialize(name, gender, ethnicity)
-    puts "Initializing Santa instance for #{name} (#{gender}, #{ethnicity})..."
+    puts "Initializing Santa instance for #{name}: #{gender}, #{ethnicity}."
     @name = name
     @gender = gender
     @ethnicity = ethnicity
@@ -44,12 +44,7 @@ class Santa
 
 end
 
-
-
-# dad_xmas = Santa.new("St. Nick", "male", "white")
-# dad_xmas.speak
-# dad_xmas.eat_milk_and_cookies("chocolate chip", "hazelnut")
-
+# Making Random Santas
 santas = []
 santa_names = ["Father Christmas", "Saint Nicholas", "Santa Claus", "Kris Kringle", "Noel", "The Grinch"]
 example_genders = ["agender", "cis-female", "bigender", "cis-male", "gender fluid", "trans-male", "trans-female"]
@@ -58,11 +53,18 @@ santa_names.length.times do |i|
   santas << Santa.new(santa_names[i], example_genders.sample, example_ethnicities.sample)
 end
 
+# Playing with Santa
 santas[0].speak
 santas[1].eat_milk_and_cookies("Choc Chips", "Hazelnut")
+puts "Belly size: #{santas[1].belly_size}"
 santas[2].celebrate_birthday(60)
-p santas[2].age
+puts "Age: #{santas[2].age}"
 santas[3].get_mad_at("Dasher")
-p santas[3].reindeer_ranking
+puts "The last reindeer is now: #{santas[3].reindeer_ranking.last}"
 santas[4].gender = "poligender"
-p santas[4].gender
+puts "Their gender is now: #{santas[4].gender}"
+
+# Making a lot of Santas
+100.times do |i|
+  santas << Santa.new("Nameless Santa No.#{i+1}", example_genders.sample, example_ethnicities.sample)
+end
