@@ -9,7 +9,7 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(141)
     @belly_size = 1
   end
 
@@ -25,8 +25,8 @@ class Santa
     end
     @belly_size
   end
-  def celebrate_birthday
-     @age += 1
+  def celebrate_birthday(years=1)
+     @age += years
      puts "Happy birthday, #{@name}!"
      @age
   end 
@@ -55,12 +55,12 @@ santa_names = ["Father Christmas", "Saint Nicholas", "Santa Claus", "Kris Kringl
 example_genders = ["agender", "cis-female", "bigender", "cis-male", "gender fluid", "trans-male", "trans-female"]
 example_ethnicities = ["black", "Latino", "white", "Asian", "native American", "Mystical Creature", "other"]
 santa_names.length.times do |i|
-  santas << Santa.new(santa_names[i], example_genders[rand(example_genders.length)], example_ethnicities[rand(example_ethnicities.length)])
+  santas << Santa.new(santa_names[i], example_genders.sample, example_ethnicities.sample)
 end
 
 santas[0].speak
 santas[1].eat_milk_and_cookies("Choc Chips", "Hazelnut")
-santas[2].celebrate_birthday
+santas[2].celebrate_birthday(60)
 p santas[2].age
 santas[3].get_mad_at("Dasher")
 p santas[3].reindeer_ranking
