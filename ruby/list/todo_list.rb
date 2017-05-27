@@ -1,10 +1,10 @@
 class TodoList
   def initialize(chores)
-    chores
+    @chores = chores
   end
 
   def get_items
-    #
+    @chores
   end
 
   def add_item
