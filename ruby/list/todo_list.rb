@@ -11,8 +11,9 @@ class TodoList
     @chores << chore
   end
 
-  def delete_item
-    #
+  def delete_item(chore)
+    @chores.delete(chore)
+    @chores
   end
 
   def get_item(i)
