@@ -14,22 +14,22 @@
 
 module Shout
   def yell_angrly(words)
-    puts @name + " says: " + words + "!!!" + " >8-S"
+    puts name + " says: " + words + "!!! >8-S"
     @mood = "angry"
   end
   def yell_happily(words)
-    puts @name + " says: " + words + "!!!" + " [8-D"
+    puts name + " says: " + words + "!!! [8-D"
     @mood = "happy"
   end
   def yell_desperately(words)
-     puts @name + " says: " + words + "!!!" + " (8-O"
+     puts name + " says: " + words + "!!! (8-O"
      @mood = "desperate"
   end
 end
 
 module Mood
   def check
-    puts "#{@name} is #{@mood}."
+    puts "#{name} is #{mood}."
   end
 end
 
