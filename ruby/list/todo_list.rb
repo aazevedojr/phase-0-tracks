@@ -7,8 +7,8 @@ class TodoList
     @chores
   end
 
-  def add_item
-    #
+  def add_item(chore)
+    @chores << chore
   end
 
   def delete_item
