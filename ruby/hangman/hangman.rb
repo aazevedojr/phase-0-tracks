@@ -26,20 +26,43 @@ class Hangman
     @guessed = false
   end
 
-  def input_validator
-    valid_characters = 'abcdefghijklmnopqrstuvwxyz'.upcase.chars
-    (@secret_word - valid_characters).empty?
-  end
-
   def feedback
-    #
+    # displays letters guessed and _ _ X _ _
   end
 
   def guess(letter)
-    #
+    # returns 
   end
 
 end
 
+def input_validator(input)
+  valid_characters = 'abcdefghijklmnopqrstuvwxyz'.upcase.chars
+  (input - valid_characters).empty?
+end
+
 # --- USER INTERFACE ---
 
+puts "H A N G M A N"
+puts "--- Player 1 ---"
+
+loop do
+  puts "Enter a word for Player 2 to guess:"
+  input = gets.chomp
+  break if input_validator(input) == true
+  puts "Please use characters from A to Z only."
+end
+
+game = Hangman.new(input)
+
+puts "--- Player 2 ---"
+
+loop do
+  puts feedback
+  puts "Make a guess!"
+  input = gets.chomp
+  break if input_validator(input) == true
+  puts
+end
+
+game.guess(input)

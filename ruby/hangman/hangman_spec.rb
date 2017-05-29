@@ -10,5 +10,8 @@ describe Hangman do
     expect(Hangman.new('Héllô'.upcase).input_validator).to eq false
   end
 
+  it 'displays partial result' do
+    expect(game.feedback).to eq '_ _ L L _'
+  end
 
-end       
+end
