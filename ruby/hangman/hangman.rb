@@ -15,21 +15,19 @@
 # --- BUSINESS LOGIC ---
 
 class Hangman
-  attr_reader :secret_word, :guess_count, :partial_solution, :guessed_word
-  attr_accessor :letters_thrown
+  attr_reader :secret_word, :partial_solution
+  attr_accessor :letters_thrown, :turns
 
   def initialize(secret_word)
     @secret_word = secret_word
-    @guess_count = secret_word.length + 3
+    @turns = secret_word.length + 3
     @letters_thrown = []
     @partial_solution = ('_' * secret_word.length).chars
-    @guessed_word = false
   end
 
   def feedback
     @secret_word.each do |letter|
       if @letters_thrown.include? letter
-        p @secret_word.index(letter)
         @partial_solution[@secret_word.index(letter)] = letter
       end
     end
@@ -64,17 +62,27 @@ game = Hangman.new(input)
 
 puts "--- Player 2 ---"
 
-loop do
-  puts "Secret Word: #{game.feedback}"
-  puts "Make a guess!"
-  input = gets.chomp.upcase.chars
-  break if input_validator(input) == true
-  puts "Please use a single character from A to Z."
+until game.turns == 0 || game.partial_solution == game.secret_word
+
+  loop do
+    puts "Secret Word: #{game.feedback}"
+    puts "Make a guess!"
+    input = gets.chomp.upcase.chars
+    break if input_validator(input) == true
+    puts "Please use a single character from A to Z."
+  end
+  
+  input.each do |letter|
+    game.letters_thrown << letter
+    game.turns -= 1
+  end
+  
+  puts "Guessed Letters: #{game.letters_thrown.join(', ')}"
+
 end
 
-input.each do |letter|
-  game.letters_thrown << letter
+if game.partial_solution == game.secret_word
+  puts " * * * Player 2 Wins! * * * "
+else
+  puts " * * * Player 1 Wins! * * * "
 end
-
-puts "Guessed Letters: #{game.letters_thrown.join(', ')}"
-puts "Secret Word: #{game.feedback}"
