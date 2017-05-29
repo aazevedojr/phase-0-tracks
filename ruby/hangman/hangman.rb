@@ -27,7 +27,8 @@ class Hangman
   end
 
   def input_validator
-    #
+    valid_characters = 'abcdefghijklmnopqrstuvwxyz'.upcase.chars
+    (@secret_word - valid_characters).empty?
   end
 
   def feedback
