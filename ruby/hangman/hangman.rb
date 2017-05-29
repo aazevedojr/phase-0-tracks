@@ -15,12 +15,11 @@
 # --- BUSINESS LOGIC ---
 
 class Hangman
-
-  attr_reader :secret_word, :guess_count, :guessed
-  attr_accessor :letters
+  attr_reader :secret_word, :guess_count, :partial_solution, :guessed_word
+  attr_accessor :letters_thrown
 
   def initialize(secret_word)
-    @secret_word = secret_word.upcase.chars
+    @secret_word = secret_word
     @guess_count = secret_word.length + 3
     @letters_thrown = []
     @partial_solution = ('_' * secret_word.length).chars
@@ -29,17 +28,17 @@ class Hangman
 
   def feedback
     @secret_word.each do |letter|
-      if letters_thrown.include? letter
-        @partial_solution[secret_word.index('letter')] = letter
+      if @letters_thrown.include? letter
+        p @secret_word.index(letter)
+        @partial_solution[@secret_word.index(letter)] = letter
       end
     end
-    partial_solution.join(' ')
+    @partial_solution.join(' ')
   end
 
   def guess(letter)
     # returns 
   end
-
 end
 
 def input_validator(input)
@@ -49,26 +48,33 @@ end
 
 # --- USER INTERFACE ---
 
-#puts "H A N G M A N"
-#puts "--- Player 1 ---"
-#
-#loop do
-#  puts "Enter a word for Player 2 to guess:"
-#  input = gets.chomp
-#  break if input_validator(input) == true
-#  puts "Please use characters from A to Z only."
-#end
-#
-#game = Hangman.new(input)
-#
-#puts "--- Player 2 ---"
-#
-#loop do
-#  puts feedback
-#  puts "Make a guess!"
-#  input = gets.chomp
-#  break if input_validator(input) == true
-#  puts
-#end
-#
-#game.guess(input)#
+puts "H A N G M A N"
+puts "--- Player 1 ---"
+
+input = []
+
+loop do
+  puts "Enter a word for Player 2 to guess:"
+  input = gets.chomp.upcase.chars
+  break if input_validator(input) == true
+  puts "Please use characters from A to Z only."
+end
+
+game = Hangman.new(input)
+
+puts "--- Player 2 ---"
+
+loop do
+  puts "Secret Word: #{game.feedback}"
+  puts "Make a guess!"
+  input = gets.chomp.upcase.chars
+  break if input_validator(input) == true
+  puts "Please use a single character from A to Z."
+end
+
+input.each do |letter|
+  game.letters_thrown << letter
+end
+
+puts "Guessed Letters: #{game.letters_thrown.join(', ')}"
+puts "Secret Word: #{game.feedback}"
