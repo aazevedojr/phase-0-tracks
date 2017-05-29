@@ -1,14 +1,16 @@
 require_relative 'hangman'
 
+describe do
+  it 'validates the word entered' do
+    expect(input_validator('Hello'.upcase.chars)).to eq true
+    expect(input_validator('Hel lo'.upcase.chars)).to eq false
+    expect(input_validator('H3110'.upcase.chars)).to eq false
+    expect(input_validator('Héllô'.upcase.chars)).to eq false
+  end
+end
+
 describe Hangman do
   let (:game) {Hangman.new('Hello')}
-
-  it 'validates the secret word' do
-    expect(Hangman.new('Hello'.upcase).input_validator).to eq true
-    expect(Hangman.new('Hel lo'.upcase).input_validator).to eq false
-    expect(Hangman.new('H3110'.upcase).input_validator).to eq false
-    expect(Hangman.new('Héllô'.upcase).input_validator).to eq false
-  end
 
   it 'displays partial result' do
     expect(game.feedback).to eq '_ _ L L _'
