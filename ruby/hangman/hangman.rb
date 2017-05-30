@@ -15,8 +15,7 @@
 # --- BUSINESS LOGIC ---
 
 class Hangman
-  attr_reader :secret_word, :partial_solution
-  attr_accessor :letters_thrown, :turns
+  attr_reader :secret_word, :partial_solution, :letters_thrown, :turns
 
   def initialize(secret_word)
     @secret_word = secret_word
@@ -26,16 +25,19 @@ class Hangman
   end
 
   def feedback
+    @partial_solution.join(' ')
+  end
+
+  def guess(letters)
+    letters.each do |letter|
+      @letters_thrown << letter
+      @turns -= 1
+    end
     @secret_word.each do |letter|
       if @letters_thrown.include? letter
         @partial_solution[@secret_word.index(letter)] = letter
       end
     end
-    @partial_solution.join(' ')
-  end
-
-  def guess(letter)
-    # returns 
   end
 end
 
@@ -72,10 +74,7 @@ until game.turns == 0 || game.partial_solution == game.secret_word
     puts "Please use a single character from A to Z."
   end
   
-  input.each do |letter|
-    game.letters_thrown << letter
-    game.turns -= 1
-  end
+  game.guess(input)
   
   puts "Guessed Letters: #{game.letters_thrown.join(', ')}"
 
