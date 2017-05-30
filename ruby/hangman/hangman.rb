@@ -19,7 +19,7 @@ class Hangman
 
   def initialize(secret_word)
     @secret_word = secret_word
-    @turns = secret_word.length + 3
+    @turns = @secret_word.length + 3
     @letters_thrown = []
     @partial_solution = ('_' * secret_word.length).chars
   end
@@ -31,14 +31,22 @@ class Hangman
   def guess(letters)
     letters.each do |letter|
       @letters_thrown << letter
-      @turns -= 1
+      @letters_thrown = @letters_thrown.uniq.sort
     end
+  end
+
+  def update
     @secret_word.length.times do |i|
       if @letters_thrown.include? @secret_word[i]
         @partial_solution[i] = secret_word[i]
       end
     end
   end
+
+  def count_turn
+    @turns = @secret_word.length - @letters_thrown.length + 3
+  end
+
 end
 
 def input_validator(input)
@@ -75,10 +83,14 @@ until game.turns == 0 || game.partial_solution == game.secret_word
   end
   
   game.guess(input)
+  game.update
+  game.count_turn
   
   puts "Guessed Letters: #{game.letters_thrown.join(', ')}"
   puts "Attempts left: #{game.turns}"
 end
+
+puts "Secret Word: #{game.feedback}"
 
 if game.partial_solution == game.secret_word
   puts " * * * Player 2 Wins! * * * "
