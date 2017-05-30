@@ -33,9 +33,9 @@ class Hangman
       @letters_thrown << letter
       @turns -= 1
     end
-    @secret_word.each do |letter|
-      if @letters_thrown.include? letter
-        @partial_solution[@secret_word.index(letter)] = letter
+    @secret_word.length.times do |i|
+      if @letters_thrown.include? @secret_word[i]
+        @partial_solution[i] = secret_word[i]
       end
     end
   end
@@ -77,7 +77,7 @@ until game.turns == 0 || game.partial_solution == game.secret_word
   game.guess(input)
   
   puts "Guessed Letters: #{game.letters_thrown.join(', ')}"
-
+  puts "Attempts left: #{game.turns}"
 end
 
 if game.partial_solution == game.secret_word
