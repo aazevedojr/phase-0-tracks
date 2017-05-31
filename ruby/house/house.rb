@@ -1,3 +1,5 @@
+require_relative 'room'
+
 class House
   attr_reader :address, :rooms, :area, :price
 
