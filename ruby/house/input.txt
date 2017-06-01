@@ -1,1 +1,4 @@
-cat input.txt | housemaker.rb
+525 Cole St
+Living room
+20
+15

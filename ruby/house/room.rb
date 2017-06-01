@@ -10,14 +10,11 @@ class Room
     @furniture = []
   end
 
-  def add_furniture(room, furniture)
-      room.furniture << furniture
+  def add_item(item_name, item_material, item_price)
+      furniture << Furniture.new(item_name, item_material, item_price)
   end
 
   def to_s
     "#{@name} (#{width} x #{length})".capitalize
   end
 end
-
-living_room = Room.new('living room', 20, 30)
-puts living_room

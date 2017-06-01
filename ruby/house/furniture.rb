@@ -11,6 +11,3 @@ class Furniture
       "#{@material} #{@name} (¥#{price})".capitalize
     end
 end
-
-sofa = Furniture.new('sofa', 'red velvet', 5000)
-puts sofa

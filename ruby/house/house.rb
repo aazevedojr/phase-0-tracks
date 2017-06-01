@@ -9,10 +9,11 @@ class House
     @area = 0
   end
 
+  def add_room(room_name, room_width, room_length)
+    rooms << Room.new(room_name, width, length)
+  end
+
   def to_s
     "#{address} (#{area} sq feet)"
   end
 end
-
-sf_house = House.new('525 Cole St, San Francisco - CA')
-puts sf_house
