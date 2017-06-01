@@ -24,3 +24,5 @@ item_price = gets.to_i
 item = house.rooms[0].add_item(item_name, item_material, item_price)
 
 puts house
+puts house.rooms[0]
+puts house.rooms[0].furniture[0]
