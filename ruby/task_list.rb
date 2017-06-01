@@ -27,6 +27,15 @@ class TaskList
       add_location(location, task)
     end
   end
+
+  def complete_task(task, location)
+    if task_locations[location].include?(task)
+      task_locations[location].delete(task)
+      puts "Crossed #{task} task off!"
+    else
+      puts "You didn't have the task #{task} assigned to #{location} location."
+    end
+  end
 end
 
 #Test Code
@@ -36,5 +45,8 @@ tasks = TaskList.new('Guto', 'Jun 03')
 tasks.add_location('home', 'pay rent', 'take the trash out')
 
 tasks.add_task('vacuum the carpet', 'home')
+
+tasks.complete_task('pay rent', 'home')
+tasks.complete_task('vacuum the carpet', 'home')
 
 p tasks
