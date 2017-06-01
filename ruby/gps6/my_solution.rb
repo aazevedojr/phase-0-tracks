@@ -28,6 +28,7 @@ class VirusPredictor
 
   attr_reader :state, :population, :population_density
 
+# predicted deaths is solely based on population density.
   def predicted_deaths
     if population_density >= 200
       number_of_deaths = (population * 0.4).floor
@@ -45,6 +46,10 @@ class VirusPredictor
 
   end
 
+# A speed variable counter starts at 0.0
+# Create if statement from population density
+# The higher the population density the lower the increase of speed
+# print a message stating how quickly the virus spreads
   def speed_of_spread
     speed = 0.0
 
