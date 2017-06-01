@@ -9,23 +9,26 @@
 require_relative 'state_data'
 
 class VirusPredictor
-  attr_reader :state, :population, :population_density
 
+# Creates instance variables for continued class use from state_data.rb
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+# Public class method that when called upon uses instance variables from initialization to run private methods.
   def virus_effects
-    predicted_deaths(population_density, population, state)
-    speed_of_spread(population_density, state)
+    predicted_deaths
+    speed_of_spread
   end
 
+# The purpose of private is to prevent any methods below the syntax from being accessed outside of the class.
   private
 
-  def predicted_deaths(population_density, population, state)
-    # predicted deaths is solely based on population density
+  attr_reader :state, :population, :population_density
+
+  def predicted_deaths
     if population_density >= 200
       number_of_deaths = (population * 0.4).floor
     elsif population_density >= 150
@@ -42,9 +45,7 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
-    # We are still perfecting our formula here. The speed is also affected
-    # by additional factors we haven't added into this functionality.
+  def speed_of_spread
     speed = 0.0
 
     if population_density >= 200
