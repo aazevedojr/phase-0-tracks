@@ -11,9 +11,10 @@ class House
 
   def add_room(room_name, room_width, room_length)
     rooms << Room.new(room_name, room_width, room_length)
+    @area += room_width * room_length
   end
 
   def to_s
-    "#{address} (#{area} sq feet)"
+    "#{address} (#{area} sq meters)"
   end
 end

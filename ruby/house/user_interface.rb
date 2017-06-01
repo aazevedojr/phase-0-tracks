@@ -13,7 +13,6 @@ puts "Enter the length of the room (m):"
 room_length = gets.to_i
 
 house.add_room(room_name, room_width, room_length)
-p house.rooms[0]
 
 puts "Add piece of furniture to #{room_name}:"
 item_name = gets.chomp
