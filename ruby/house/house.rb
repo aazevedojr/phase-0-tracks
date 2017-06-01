@@ -5,12 +5,12 @@ class House
 
   def initialize(address)
     @address = address
-    @rooms = {}
+    @rooms = []
     @area = 0
   end
 
   def add_room(room_name, room_width, room_length)
-    rooms << Room.new(room_name, width, length)
+    rooms << Room.new(room_name, room_width, room_length)
   end
 
   def to_s

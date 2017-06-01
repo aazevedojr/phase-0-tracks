@@ -13,6 +13,6 @@ room_width = gets.to_i
 puts "Enter the length of the room (m):"
 room_length = gets.to_i
 
-add_room(room_name, room_width, room_length)
+house.add_room(room_name, room_width, room_length)
 
 
