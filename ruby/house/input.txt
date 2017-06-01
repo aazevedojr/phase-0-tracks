@@ -2,3 +2,6 @@
 Living room
 20
 15
+sofa
+velvet
+800
