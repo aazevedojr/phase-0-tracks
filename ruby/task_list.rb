@@ -24,7 +24,7 @@ class TaskList
         puts "#{task} task has already been assigned."
       end
     else
-      puts "#{location} location has not yet been assigned."
+      add_location(location, task)
     end
   end
 end
