@@ -12,5 +12,5 @@ class Furniture
     end
 end
 
-#sofa = Furniture.new('sofa', 'red velvet', 5000)
-#puts sofa
+sofa = Furniture.new('sofa', 'red velvet', 5000)
+puts sofa

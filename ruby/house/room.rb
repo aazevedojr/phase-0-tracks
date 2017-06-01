@@ -20,7 +20,4 @@ class Room
 end
 
 living_room = Room.new('living room', 20, 30)
-
-
-
 puts living_room
