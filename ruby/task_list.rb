@@ -47,15 +47,28 @@ class TaskList
     end
     "Due date: #{due_date}"
   end
+
+  def is_past_due?(today)
+    weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    if weekdays.index(today) > weekdays.index(due_date)
+      puts "Your tasks are past due!"
+    elsif weekdays.index(today) < weekdays.index(due_date)
+      puts "You have #{weekdays.index(due_date) - weekdays.index(today)} days to finish your tasks."
+    else
+      puts "Your tasks are due today!"
+    end
+  end
 end
 
 #Test Code
 
-tasks = TaskList.new('Guto', 'Jun 03')
+tasks = TaskList.new('Guto', 'Friday')
 
 tasks.add_location('home', 'pay rent', 'take the trash out')
 tasks.add_location('WholeFoods', 'buy napkins', 'buy shampoo', 'buy toothbrush')
 tasks.add_task('vacuum the carpet', 'home')
 
 
-puts tasks
+tasks.is_past_due?('Thursday')
+tasks.is_past_due?('Friday')
+tasks.is_past_due?('Saturday')
