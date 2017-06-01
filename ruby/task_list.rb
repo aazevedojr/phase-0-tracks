@@ -36,6 +36,17 @@ class TaskList
       puts "You didn't have the task #{task} assigned to #{location} location."
     end
   end
+
+  def to_s
+    task_locations.each do |location, tasks|
+      puts "At #{location}:"
+      tasks.each do |task|
+        puts " - #{task}"
+      end
+      puts ""
+    end
+    "Due date: #{due_date}"
+  end
 end
 
 #Test Code
@@ -43,10 +54,8 @@ end
 tasks = TaskList.new('Guto', 'Jun 03')
 
 tasks.add_location('home', 'pay rent', 'take the trash out')
-
+tasks.add_location('WholeFoods', 'buy napkins', 'buy shampoo', 'buy toothbrush')
 tasks.add_task('vacuum the carpet', 'home')
 
-tasks.complete_task('pay rent', 'home')
-tasks.complete_task('vacuum the carpet', 'home')
 
-p tasks
+puts tasks
