@@ -19,5 +19,9 @@ function reverse(word) {
 var dbc = "DevBootcamp"
 var cbd = reverse(dbc)
 
-console.log(dbc)
-console.log(cbd)
+if (dbc.length == cbd.length) {
+  console.log(dbc);
+  console.log(cbd)
+} else {
+  console.log("Fail!")
+}
