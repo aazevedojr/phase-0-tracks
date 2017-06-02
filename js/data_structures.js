@@ -11,9 +11,7 @@ horseColors.splice(4,1) //It turns out 'purple haze' is not a color at all!
 var horseInfo = {}
 
 for (var i = 0; i <= horseNames.length - 1; i++) {
-  var name = horseNames[i];
-  var color = horseColors[i];
-  horseInfo[name] = color;
+  horseInfo[horseNames[i]] = horseColors[i]
 }
 
 console.log(horseInfo)
