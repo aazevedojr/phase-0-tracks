@@ -1,9 +1,17 @@
-var horse_colors = ["vantablack", "forest green", "true blue", "mellow yellow", "purple haze", "lava red"]
-var horse_names = ["BoJack Horseman", "Secretariat", "Tiffany", "Silverlight"]
+var horseColors = ["vantablack", "forest green", "true blue", "mellow yellow", "purple haze", "lava red"]
+var horseNames = ["BoJack Horseman", "Secretariat", "Tiffany", "Silverlight"]
 
-horse_colors.push("TiO2 white")
-horse_names.push("Potranca", "James Baxter")
-horse_colors.splice(4,1) //It turns out 'purple haze' is not a color at all!
+horseColors.push("TiO2 white")
+horseNames.push("Potranca", "James Baxter")
+horseColors.splice(4,1) //It turns out 'purple haze' is not a color at all!
 
-console.log(horse_colors)
-console.log(horse_names)
+//console.log(horseColors)
+//console.log(horseNames)
+
+var horseInfo = {}
+
+for (var i = 0; i <= horseNames.length - 1; i++) {
+  horseInfo['horseNames[i]'] = horseColors[i]
+}
+
+console.log(horseInfo)
