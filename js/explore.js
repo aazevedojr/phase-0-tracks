@@ -8,11 +8,16 @@
 // if the character has already been moved.
 // Print the string.
 
-var str = "DevBootcamp"
-var rts = ""
-
-for (var i = str.length - 1; i >= 0; i--) {
-  rts += str[i]
+function reverse(word) {
+  var drow = ""
+  for (var i = word.length - 1; i >= 0; i--) {
+  drow += word[i]
+  }
+  return drow
 }
 
-console.log(rts)
+var dbc = "DevBootcamp"
+var cbd = reverse(dbc)
+
+console.log(dbc)
+console.log(cbd)
