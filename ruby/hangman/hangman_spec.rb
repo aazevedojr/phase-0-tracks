@@ -10,9 +10,14 @@ describe do
 end
 
 describe Hangman do
-  let (:game) {Hangman.new('Hello')}
+  let (:input) {'Hello'.upcase.chars}
+  let (:game) {Hangman.new(input)}
 
   it 'displays partial result' do
+    input = 'L'.chars
+    game.guess(input)
+    game.update
+    game.count_turn
     expect(game.feedback).to eq '_ _ L L _'
   end
 
