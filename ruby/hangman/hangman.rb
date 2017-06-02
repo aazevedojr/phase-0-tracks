@@ -19,7 +19,7 @@ class Hangman
 
   def initialize(secret_word)
     @secret_word = secret_word
-    @turns = @secret_word.length + 3
+    @turns = ((@secret_word.uniq.length + 1.6) * 1.4).floor
     @letters_thrown = []
     @partial_solution = ('_' * secret_word.length).chars
   end
@@ -44,7 +44,7 @@ class Hangman
   end
 
   def count_turn
-    @turns = @secret_word.length - @letters_thrown.length + 3
+    @turns = ((@secret_word.uniq.length + 1.6) * 1.4).floor - @letters_thrown.length
   end
 
 end
@@ -72,7 +72,7 @@ game = Hangman.new(input)
 
 puts "--- Player 2 ---"
 
-until game.turns == 0 || game.partial_solution == game.secret_word
+until game.turns <= 0 || game.partial_solution == game.secret_word
 
   loop do
     puts "Secret Word: #{game.feedback}"
@@ -92,7 +92,7 @@ end
 
 puts "Secret Word: #{game.feedback}"
 
-if game.partial_solution == game.secret_word
+if (game.partial_solution == game.secret_word) && (game.turns >= 0)
   puts " * * * Player 2 Wins! * * * "
 else
   puts " * * * Player 1 Wins! * * * "
