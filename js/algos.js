@@ -8,16 +8,19 @@
 //  END function definition.
 
 function longest(strings) {
-  var lengths = {};
-  var longer = 0;
+  var lengths = {}
+  var longer = 0
   for (var i = strings.length - 1; i >= 0; i--) {
-    lengths[strings[i].length] = strings[i];
+    lengths[strings[i].length] = strings[i]
     if (strings[i].length > longer) {
       longer = strings[i].length
     }
   }
-  return strings[longer]
-};
+  return lengths[longer]
+}
 
-var phrases = ["long phrase","longest phrase","longer phrase"];
-console.log(longest(phrases));
+var phrases = ["long phrase","longest phrase","longer phrase"]
+console.log(longest(phrases))
+
+var horseNames = ["BoJack Horseman", "Secretariat", "Tiffany", "James Baxter"]
+console.log(longest(horseNames))
