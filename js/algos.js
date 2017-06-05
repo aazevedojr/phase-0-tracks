@@ -1,3 +1,5 @@
+// PSEUDOCODE
+
 //  Define 'longest' function that takes an array of strings as parameter;
 //  Declare 'longer' variable to hold the longest string length (start as 0);
 //  FOR each element of the array, DO:
@@ -6,6 +8,32 @@
 //  END loop;
 //  RETURN the string whose key equals length;
 //  END function definition.
+
+//  Define 'match' function that takes two objects as parameters;
+//    FOR each (i) KEY of the first object, DO:
+//      FOR each (j) KEY of the second object, DO:
+//        IF key[j] == key[i]
+//          RETURN value[j] == value[i]
+//        END conditional
+//      END loop
+//    END loop
+//    RETURN false
+//  END function definition
+
+//  Define 'babble' function that takes a number as argument ('elements');
+//    Define array 'gibberish';
+//    Define array of letters of the alphabet ('alphabet');
+//    FOR i = 0 to i = elements DO:
+//      variable 'length' = random(1 to 10);
+//      FOR j = 0 to j = length DO:
+//        gibberish[i] << alphabet[random]
+//      END loop
+//     END loop
+//    RETURN gibberish
+//  END function definition
+
+
+// BUSINESS LOGIC
 
 function longest(strings) {
   var lengths = {}
@@ -19,17 +47,6 @@ function longest(strings) {
   return lengths[longer]
 }
 
-//  Define 'match' function that takes two objects as parameters;
-//    FOR each (i) KEY of the first object, DO:
-//      FOR each (j) KEY of the second object, DO:
-//        IF key[j] == key[i]
-//          RETURN value[j] == value[i]
-//        END conditional
-//      END loop
-//    END loop
-//    RETURN false
-//  END function definition
-
 function match(object1, object2) {
   var keys1 = Object.keys(object1)
   var keys2 = Object.keys(object2)
@@ -42,18 +59,6 @@ function match(object1, object2) {
   }
   return false
 }
-
-//  Define 'babble' function that takes a number as argument ('elements');
-//    Define array 'gibberish';
-//    Define array of letters of the alphabet ('alphabet');
-//    FOR i = 0 to i = elements DO:
-//      variable 'length' = random(1 to 10);
-//      FOR j = 0 to j = length DO:
-//        gibberish[i] << alphabet[random]
-//      END loop
-//     END loop
-//    RETURN gibberish
-//  END function definition
 
 function babble(elements) {
   var gibberish = []
@@ -83,4 +88,11 @@ function babble(elements) {
 //console.log(match({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}))
 //console.log(match({animal: "Dog", legs: 4}, {animal: "Tripod", legs: 3}))
 
-console.log(babble(3))
+//console.log(babble(3))
+
+for (var i = 0; i < 10; i++) {
+  var nonsense = babble(5)
+  console.log('TEST ' + (i + 1))
+  console.log(nonsense)
+  console.log('The longest word is: ' + "'" + longest(nonsense) + "'")
+}
