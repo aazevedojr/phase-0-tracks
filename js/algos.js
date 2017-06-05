@@ -59,10 +59,11 @@ function babble(elements) {
   var gibberish = []
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
   var length = 0
-  for (var i = elements - 1; i >= 0; i--) {
-    length = Math.floor(Math.random()*11);
-    for (length - 1; length >= 0; length--) {
-      gibberish[i].push(alphabet[Math.floor(Math.random()*26)])
+  for (var i = 0; i <= elements - 1; i++) {
+    length = Math.floor(Math.random()*11)
+    gibberish[i] = ''
+    for (var j = length; j >= 0; j--) {
+      gibberish[i] += (alphabet[Math.floor(Math.random()*26)])
     }
   }
   return gibberish
