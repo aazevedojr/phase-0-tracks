@@ -2,7 +2,7 @@
 //  Declare 'longer' variable to hold the longest string length (start as 0);
 //  FOR each element of the array, DO:
 //  - assign its own length as a its key value,
-//  - if string's length > longer; longer = string's length.
+//  - IF string's length > longer; longer = string's length.
 //  END loop;
 //  RETURN the string whose key equals length;
 //  END function definition.
@@ -19,8 +19,23 @@ function longest(strings) {
   return lengths[longer]
 }
 
-var phrases = ["long phrase","longest phrase","longer phrase"]
-console.log(longest(phrases))
+//  Define 'match' function that takes two objects as parameters;
+//    FOR each (i) VALUE of the first object, DO:
+//      FOR each (j) VALUE of the second object, DO:
+//        IF value[j] == value[i]
+//          RETURN key[j] == key[i]
+//        END conditional
+//      END loop
+//    END loop
+//    RETURN false
+//  END function definition
 
-var horseNames = ["BoJack Horseman", "Secretariat", "Tiffany", "James Baxter"]
-console.log(longest(horseNames))
+
+
+// TEST CODE
+
+//var phrases = ["long phrase","longest phrase","longer phrase"]
+//console.log(longest(phrases))
+//
+//var horseNames = ["BoJack Horseman", "Secretariat", "Tiffany", "James Baxter"]
+//console.log(longest(horseNames))
