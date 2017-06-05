@@ -20,17 +20,28 @@ function longest(strings) {
 }
 
 //  Define 'match' function that takes two objects as parameters;
-//    FOR each (i) VALUE of the first object, DO:
-//      FOR each (j) VALUE of the second object, DO:
-//        IF value[j] == value[i]
-//          RETURN key[j] == key[i]
+//    FOR each (i) KEY of the first object, DO:
+//      FOR each (j) KEY of the second object, DO:
+//        IF key[j] == key[i]
+//          RETURN value[j] == value[i]
 //        END conditional
 //      END loop
 //    END loop
 //    RETURN false
 //  END function definition
 
-
+function match(object1, object2) {
+  var keys1 = Object.keys(object1)
+  var keys2 = Object.keys(object2)
+  for (var i = keys1.length - 1; i >= 0; i--) {
+    for (var j = keys2.length - 1; j >= 0; j--) {
+      if (keys2[j] == keys1[i]) {
+        return object1[keys1[i]] == object2[keys2[j]]
+      }
+    }
+    return false
+  }
+}
 
 // TEST CODE
 
@@ -39,3 +50,6 @@ function longest(strings) {
 //
 //var horseNames = ["BoJack Horseman", "Secretariat", "Tiffany", "James Baxter"]
 //console.log(longest(horseNames))
+
+console.log(match({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
+console.log(match({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}))
