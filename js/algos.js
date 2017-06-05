@@ -43,6 +43,32 @@ function match(object1, object2) {
   return false
 }
 
+//  Define 'babble' function that takes a number as argument ('elements');
+//    Define array 'gibberish';
+//    Define array of letters of the alphabet ('alphabet');
+//    FOR i = 0 to i = elements DO:
+//      variable 'length' = random(1 to 10);
+//      FOR j = 0 to j = length DO:
+//        gibberish[i] << alphabet[random]
+//      END loop
+//     END loop
+//    RETURN gibberish
+//  END function definition
+
+function babble(elements) {
+  var gibberish = []
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  var length = 0
+  for (var i = elements - 1; i >= 0; i--) {
+    length = Math.floor(Math.random()*11);
+    for (length - 1; length >= 0; length--) {
+      gibberish[i].push(alphabet[Math.floor(Math.random()*26)])
+    }
+  }
+  return gibberish
+}
+
+
 // TEST CODE
 
 //var phrases = ["long phrase","longest phrase","longer phrase"]
@@ -51,8 +77,9 @@ function match(object1, object2) {
 //var horseNames = ["BoJack Horseman", "Secretariat", "Tiffany", "James Baxter"]
 //console.log(longest(horseNames))
 
-console.log(match({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
-console.log(match({name: "Steven", age: 54}, {name: "Jesus", age: 2017}))
-console.log(match({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}))
-console.log(match({animal: "Dog", legs: 4}, {animal: "Tripod", legs: 3}))
-console.log(match({name: "Ali", loves: "Gus"}, {name: "Gus", loves: "Sushi"}))
+//console.log(match({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
+//console.log(match({name: "Steven", age: 54}, {name: "Jesus", age: 2017}))
+//console.log(match({animal: "Dog", legs: 4}, {animal: "Dog", legs: 3}))
+//console.log(match({animal: "Dog", legs: 4}, {animal: "Tripod", legs: 3}))
+
+console.log(babble(3))
