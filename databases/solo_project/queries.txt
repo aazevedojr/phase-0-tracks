@@ -1,0 +1,142 @@
+**1. Display the information in one table:**
+
+sqlite> SELECT * FROM pokemon;
+
+id          name        primary_type_id  secondary_type_id  evolves
+----------  ----------  ---------------  -----------------  ----------
+1           Bulbasaur   1                5                  true
+2           Ivysaur     1                5                  true
+3           Venusaur    1                5                  false
+4           Charmander  2                7                  true
+5           Charmeleon  2                7                  true
+6           Charizard   2                6                  false
+7           Squirtle    3                7                  true
+8           Wartortle   3                7                  true
+9           Blastoise   3                7                  false
+10          Caterpie    4                7                  true
+11          Metapod     4                7                  true
+12          Butterfree  4                6                  false
+13          Weedle      4                5                  true
+14          Kakuna      4                5                  true
+15          Beedrill    4                5                  false
+16          MissingNo.  7                6                  true
+
+
+**2. Update an item that meets some condition:**
+
+sqlite> UPDATE pokemon SET secondary_type_id=7, evolves="false" WHERE id=16;
+sqlite> SELECT * FROM pokemon WHERE id=16;
+
+id          name        primary_type_id  secondary_type_id  evolves
+----------  ----------  ---------------  -----------------  ----------
+16          MissingNo.  7                7                  false
+
+
+**3. Display the information in both tables using one query:**
+
+sqlite> SELECT pokemon.id, pokemon.name, ta.name AS primary_type_name, tb.name AS secondary_type_name, pokemon.evolves FROM pokemon JOIN types AS ta ON (pokemon.primary_type_id = ta.id) JOIN types AS tb ON (secondary_type_id = tb.id);
+
+id          name        primary_type_name  secondary_type_name  evolves
+----------  ----------  -----------------  -------------------  ----------
+1           Bulbasaur   Grass              Poison               true
+2           Ivysaur     Grass              Poison               true
+3           Venusaur    Grass              Poison               false
+4           Charmander  Fire               ---                  true
+5           Charmeleon  Fire               ---                  true
+6           Charizard   Fire               Flying               false
+7           Squirtle    Water              ---                  true
+8           Wartortle   Water              ---                  true
+9           Blastoise   Water              ---                  false
+10          Caterpie    Bug                ---                  true
+11          Metapod     Bug                ---                  true
+12          Butterfree  Bug                Flying               false
+13          Weedle      Bug                Poison               true
+14          Kakuna      Bug                Poison               true
+15          Beedrill    Bug                Poison               false
+16          MissingNo.  ---                ---                  false
+
+
+**4. Display a narrower selection of columns from both tables using one query:**
+
+sqlite> SELECT pokemon.name, ta.name AS primary_type_name FROM pokemon JOIN types AS ta ON (pokemon.primary_type_id = ta.id);
+
+name        primary_type_name
+----------  -----------------
+Bulbasaur   Grass
+Ivysaur     Grass
+Venusaur    Grass
+Charmander  Fire
+Charmeleon  Fire
+Charizard   Fire
+Squirtle    Water
+Wartortle   Water
+Blastoise   Water
+Caterpie    Bug
+Metapod     Bug
+Butterfree  Bug
+Weedle      Bug
+Kakuna      Bug
+Beedrill    Bug
+MissingNo.  ---
+
+
+**5. Delete an item that meets some condition:**
+
+sqlite> DELETE FROM pokemon WHERE id=16;
+sqlite> SELECT * FROM pokemon;
+
+id          name        primary_type_id  secondary_type_id  evolves
+----------  ----------  ---------------  -----------------  ----------
+1           Bulbasaur   1                5                  true
+2           Ivysaur     1                5                  true
+3           Venusaur    1                5                  false
+4           Charmander  2                7                  true
+5           Charmeleon  2                7                  true
+6           Charizard   2                6                  false
+7           Squirtle    3                7                  true
+8           Wartortle   3                7                  true
+9           Blastoise   3                7                  false
+10          Caterpie    4                7                  true
+11          Metapod     4                7                  true
+12          Butterfree  4                6                  false
+13          Weedle      4                5                  true
+14          Kakuna      4                5                  true
+15          Beedrill    4                5                  false
+
+
+**RELEASE 3**
+
+sqlite> UPDATE pokemon SET secondary_type_id=8 WHERE secondary_type_id=7;
+
+sqlite> SELECT pokemon.id, pokemon.name, ta.name AS primary_type_name, tb.name AS secondary_type_name, pokemon.evolves FROM pokemon INNER JOIN types AS ta ON (pokemon.primary_type_id = ta.id) INNER JOIN types AS tb ON (secondary_type_id = tb.id);
+
+id          name        primary_type_name  secondary_type_name  evolves
+----------  ----------  -----------------  -------------------  ----------
+1           Bulbasaur   Grass              Poison               true
+2           Ivysaur     Grass              Poison               true
+3           Venusaur    Grass              Poison               false
+6           Charizard   Fire               Flying               false
+12          Butterfree  Bug                Flying               false
+13          Weedle      Bug                Poison               true
+14          Kakuna      Bug                Poison               true
+15          Beedrill    Bug                Poison               false
+
+sqlite> SELECT pokemon.id, pokemon.name, ta.name AS primary_type_name, tb.name AS secondary_type_name, pokemon.evolves FROM pokemon LEFT JOIN types AS ta ON (pokemon.primary_type_id = ta.id) LEFT JOIN types AS tb ON (secondary_type_id = tb.id);
+
+id          name        primary_type_name  secondary_type_name  evolves
+----------  ----------  -----------------  -------------------  ----------
+1           Bulbasaur   Grass              Poison               true
+2           Ivysaur     Grass              Poison               true
+3           Venusaur    Grass              Poison               false
+4           Charmander  Fire                                    true
+5           Charmeleon  Fire                                    true
+6           Charizard   Fire               Flying               false
+7           Squirtle    Water                                   true
+8           Wartortle   Water                                   true
+9           Blastoise   Water                                   false
+10          Caterpie    Bug                                     true
+11          Metapod     Bug                                     true
+12          Butterfree  Bug                Flying               false
+13          Weedle      Bug                Poison               true
+14          Kakuna      Bug                Poison               true
+15          Beedrill    Bug                Poison               false
