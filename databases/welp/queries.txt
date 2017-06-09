@@ -1,0 +1,46 @@
+**Join the three tables:**
+
+SELECT *
+FROM reviews
+LEFT JOIN businesses ON reviews.business_id = businesses.id
+LEFT JOIN users ON reviews.user_id = users.id;
+
+id          stars       comment        business_id  user_id     id          name           id          first_name  last_name
+----------  ----------  -------------  -----------  ----------  ----------  -------------  ----------  ----------  ----------
+1           1           Towed my car!  2            1           2           Amir's Towing  1           Bradford    Pitt
+2           3           Good music, b  3            4           3           The Beagle Ni  4           Seteven     Wonder
+3           5           Great vibes!   4            2           4           Lotus Yoga     2           Mandy       Kalling
+4           4           Holly and buc  1            3           1           Grundy Hollow  3           Angela      Jolie
+
+
+**View the user's names, the business name, the star rating, and the comment:**
+
+SELECT
+    businesses.name AS business_name,
+    reviews.stars,
+    reviews.comment,
+    users.first_name AS by
+FROM
+    reviews
+    LEFT JOIN businesses ON reviews.business_id = businesses.id
+    LEFT JOIN users ON reviews.user_id = users.id;
+
+business_name  stars       comment        by
+-------------  ----------  -------------  ----------
+Amir's Towing  1           Towed my car!  Bradford
+The Beagle Ni  3           Good music, b  Seteven
+Lotus Yoga     5           Great vibes!   Mandy
+Grundy Hollow  4           Holly and buc  Angela
+
+
+**View the data of all three tables for just one particular busines:**
+
+SELECT *
+FROM reviews
+JOIN businesses ON reviews.business_id = businesses.id
+JOIN users ON reviews.user_id = users.id
+WHERE business_id = 1;
+
+id          stars       comment             business_id  user_id     id          name                  id          first_name  last_name
+----------  ----------  ------------------  -----------  ----------  ----------  --------------------  ----------  ----------  ----------
+4           4           Holly and bucolic.  1            3           1           Grundy Hollow Chapel  3           Angela      Jolie
