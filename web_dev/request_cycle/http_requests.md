@@ -26,6 +26,6 @@ Common error codes, in contrast, are:
 
 ## What is a cookie and how does it relate to HTTP requests?
 
-It's a small data package sent from a the server to the browser and stored on the user's computer while the user is browsing.
+It's a small data package sent from a the server to the browser and stored on the user's computer while the user is browsing.  
 Cookies are passed as HTTP headers, both in the request (client to server), and in the response (server to client).
 
