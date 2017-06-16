@@ -1,0 +1,127 @@
+body {
+    color: #336699;
+    background: #ccccff;
+    font-family: Arial;
+    margin: 40px 0;
+}
+
+h1 {
+    background-color: #99ccff;
+    font-weight: bold;
+    padding-left: 10px;
+    top: 0;
+    margin-top: 0;
+    margin-left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+h3 {
+    margin-left: 10px;
+}
+em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+#logo {
+    width: 100%;
+    margin: 0;
+}
+
+.info {
+    font-style: italic;
+    margin-left: 30px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    z-index: 2;
+}
+
+footer {
+    background-color: #99ccff;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+}
+
+nav {
+    border: 2px solid #336699;
+    background-image: url(../drawings/involution.jpg);
+    background-size: contain;
+    margin: 0 5px 25px;
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 5%;
+}
+
+#contact {
+    list-style-type: none;
+    margin-top: 50px;
+    padding-left: 5px;
+}
+
+#contact li {
+    font-size: 1.2em;
+    display: inline;
+    margin: 5px;
+    border: 2px solid #336699;
+    padding: 5px;
+}
+
+#monster {
+    width: 100%;
+}
+
+a:link {
+    color: #3c8cb4;
+    text-shadow: -1px -1px black;
+    text-decoration-line: none;
+}
+
+a:visited {
+    color: #78c8c8;
+}
+
+a:hover {
+    text-shadow: 1px 1px black;
+}
+
+#thought h2 {
+    font-style: italic;
+    font-size: 1em;
+    line-height: .5em;
+}
+
+#thought p {
+    margin-left: 10%;
+    font-family: "Brush Script MT";
+    font-size: 1.4em;
+    line-height: .5em;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        font-size: .8em;
+    }
+}
