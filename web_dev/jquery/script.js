@@ -1,22 +1,21 @@
-console.log("The script is running!");
+$(document).ready(function() {
 
-function changePicture(event) {
-  console.log("Shuffle!")
-  drawing.src = "drawings/" + drawings[Math.floor((Math.random() * drawings.length))] + ".jpg";
-};
+  // Each day a new quote!
+  $.getJSON('http://quotes.rest/qod.json', function(data) {
+    $('#thought > p').html(data.contents.quotes[0].quote);
+  });
 
-var drawing = document.getElementById("logo");
+  // Easter egg: Click on the quote to change it!
+   $('#thought').click(function() {
+       $('#thought > p').text('Talk is cheap. Show me the code!');
+   });
 
-var drawings = [
-  "ariados",
-  "clamperl",
-  "ekans",
-  "him",
-  "ice_king",
-  "idk",
-  "lugia",
-  "owl",
-  "zygarde"
-];
+   // Can't read that tacky font I choose? Hover over!
+    $('#thought').mouseenter(function() {
+      $(this).css({'color': '#382772'});
+    });
+    $('#thought').mouseleave(function() {
+      $(this).css({'color': '#336699'});
+    });
 
-drawing.addEventListener("click", changePicture);
+});
