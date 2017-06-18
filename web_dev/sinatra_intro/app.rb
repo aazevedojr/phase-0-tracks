@@ -1,6 +1,7 @@
 # require gems
 require 'sinatra'
 require 'sqlite3'
+require 'sinatra/reloader' if development?
 
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
@@ -44,3 +45,26 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+# GET route that displays an address
+
+get '/contact' do
+
+end
+
+# GET route that takes a person's name as a query parameter (not a route parameter)
+# and say "Good job, [person's name]!". If the query parameter is not present,
+# the route simply says "Good job!"
+
+get '/great_job' do
+
+end
+
+# GET route that uses route parameters to add two numbers and respond with the result.
+# The data types are tricky here -- when will the data need to be (or arrive as) a string?
+
+
+# GET route that allows the user to search the database in some way
+# -- maybe for students who have a certain first name, or some other attribute.
+# If you like, you can simply modify the home page to take a query parameter,
+# and filter the students displayed if a query parameter is present.
