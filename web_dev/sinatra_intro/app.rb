@@ -49,7 +49,7 @@ end
 # GET route that displays an address
 
 get '/contact' do
-
+  "633 Folsom<br>San Francisco<br>CA 94107"
 end
 
 # GET route that takes a person's name as a query parameter (not a route parameter)
@@ -57,12 +57,20 @@ end
 # the route simply says "Good job!"
 
 get '/great_job' do
-
+  if params[:name]
+    "Good job, #{params[:name]}!"
+  else
+    "Good job!"
+  end
 end
 
 # GET route that uses route parameters to add two numbers and respond with the result.
 # The data types are tricky here -- when will the data need to be (or arrive as) a string?
 
+get '/sum/:x/:y' do
+  z = params[:x].to_i + params[:y].to_i
+  z.to_s
+end
 
 # GET route that allows the user to search the database in some way
 # -- maybe for students who have a certain first name, or some other attribute.
