@@ -1,6 +1,7 @@
 # require gems
 require 'sinatra'
 require 'sqlite3'
+require "sinatra/reloader" if development?
 
 set :public_folder, File.dirname(__FILE__) + '/static'
 
@@ -23,5 +24,12 @@ post '/students' do
   db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
   redirect '/'
 end
+
+# show campi statistics on a new page
+get '/campi' do
+  @students = db.execute("SELECT * FROM students")
+  erb :campi
+end
+
 
 # add static resources
