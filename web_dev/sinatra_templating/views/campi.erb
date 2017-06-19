@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campi Statistics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header><a href="/">Home</a></header>
+<%
+  campi = {
+    SF: 0,
+    SD: 0,
+    NYC: 0,
+    CHI: 0,
+    SEA: 0
+  }
+  @students.each do |student|
+    if student['campus'] == 'SF'
+      campi[:SF] += 1
+    elsif student['campus'] == 'SD'
+      campi[:SD] += 1 
+    elsif student['campus'] == 'NYC'
+      campi[:NYC] += 1
+    elsif student['campus'] == 'CHI'
+      campi[:CHI] += 1
+    else
+      campi[:SEA] += 1
+    end
+  end
+%>
+  <h1>Campi Statistics:</h1>
+  <ul>
+    <% campi.each do |campus, no_of_students| %>
+      <li><%= "#{campus} Campus has #{no_of_students} students." %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
